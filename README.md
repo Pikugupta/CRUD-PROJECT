@@ -1,27 +1,47 @@
-# Newpractice
+CRUD Application with Local Storage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+This project is a simple CRUD application utilizing Angular's state management with Signals to handle task operations, including adding, updating, deleting, and editing tasks. The data is persisted using local storage.
 
-## Development server
+Technologies Used
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Angular (v16+)
+Angular Signals for state management
+TypeScript
+HTML5 and CSS3
+Local Storage for data persistence
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Components Overview
 
-## Build
+The application consists of the following components:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. TaskCreateComponent
+The TaskCreateComponent is responsible for task creation. It generates a unique task ID and allows the user to input a task description. When the user clicks the Add Task button, the task is added to the list and saved in local storage.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. TaskListComponent
+The TaskListComponent displays a list of tasks (limited to 3 rows at a time). It provides the following functionalities for each task:
 
-## Running end-to-end tests
+1-Mark as Pending / Mark as Completed
+This button toggles the task's status between pending and completed.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2-Edit Button
+Clicking this button allows you to modify the task's description. However, the Generated ID remains immutable, as it is auto-generated and cannot be changed. The Add Task button transforms into an Update Task button once editing begins, allowing the user to save their changes.
 
-## Further help
+3-Delete Button
+The Delete button is only visible for completed tasks. Clicking it will remove the task from both the displayed list and local storage.
+Filter Buttons
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+The filter options include:
+All Button (default): Displays both pending and completed tasks.
+Pending Button: Filters and displays only pending tasks.
+Completed Button: Filters and displays only completed tasks.
+
+
+View All Tasks Link
+Since the table is limited to showing only 3 tasks at a time, this link allows users to navigate to a separate view that displays all tasks with their respective statuses (completed or pending).
+
+
+3. ViewTaskComponent
+This component displays all tasks in a table with their statuses (completed or pending), allowing users to view more than 3 tasks at once.
