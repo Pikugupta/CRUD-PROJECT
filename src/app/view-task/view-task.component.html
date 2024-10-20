@@ -1,0 +1,28 @@
+
+<div class="container border">
+  <div class="back-button">
+    <button type="button" class="btn btn-outline-primary" routerLink=""> Back</button>
+ </div>
+    <div class="mb-3 mt-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Generated Id</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let taskData of tasks(); let i = index">
+            <th scope="row">{{ i + 1 }}</th> <!-- Use index for row number -->
+            <td>{{ taskData.id }}</td>
+            <td>{{ taskData.description }}</td>
+            <td *ngIf="taskData.isComplete == true">Completed</td>
+            <td *ngIf="taskData.isComplete == false">Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
